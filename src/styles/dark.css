@@ -1,0 +1,27 @@
+:root {
+    --body-bg-color: #000;
+    --text-color: white;
+    --svg-color: white;
+    --svg-hover-color:#00d0ff;
+    --modal-text-color: black;    
+
+    --editor-wrapper-bg-color:#000;
+    --editor-wrapper-text-color:#333;
+
+    --editor-input-bg-color:#000;
+    --editor-input-text-color:#fff;
+    --editor-input-bg-focus-color:#fff;
+    --editor-input-text-focus-color:#000;
+    --editor-input-boxshadow-color:rgba(0,123,255,1);
+    --editor-input-boxshadow-color-focus:rgba(0,123,255,1);
+
+    --scrollbar-shadow-color:rgba(0, 0, 0, 0.6);
+    --scrollbar-thumb-bg-color:rgba(255, 255, 255, 1);
+    --scrollbar-thumb-shadow-color:inset 0 0 6px rgba(0, 0, 0, 0.5);
+    --scrollbar-inactive-color:rgba(255, 255, 255, 0.7);
+
+    --text-seleccct-bg-color:#3a3a3a;
+    --text-seleccct-text-color:#fff;
+
+    --font: 'Varela Round', sans-serif;
+}

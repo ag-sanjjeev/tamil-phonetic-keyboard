@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<link rel="stylesheet" href="thirdparty/bootstrap.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="src/styles/light.css" id="theme-css" media="all" />
+    <link rel="stylesheet" href="src/styles/main.css" media="all" />
+
+    <script src="thirdparty/jquery-3.4.1.js"></script>
+    <script src="thirdparty/popper.min.js"></script>
+    <script src="thirdparty/bootstrap.js"></script>    
+    <script type="text/javascript" src="src/script/ta_process.js"></script>
+    <script type="text/javascript" src="src/script/audio.js"></script>
+    <script type="text/javascript" src="src/script/custom.js"></script>
+    <script src="src/script/main.js"></script>
+
+	<title>Tamil Keyboard</title>
+</head>
+<body>
+
+	<div class="container-fluid">
+		
+		<div class="row my-3">
+			
+			<div class="col-md-12">
+				
+				<div class="jumbotron jumbotron-fluid p-2">
+				  <div class="p-3">
+				    <h1 class="h1">தமிழ் தட்டச்சு பலகை</h1>
+				    <p class="lead">Tamil Phonetic Keyboard</p>
+				    
+				    <button class="btn float-right" id="about-project">
+				    	<svg class="primary" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+							<path d="M256,90c44.3,0,86,17.3,117.4,48.6C404.7,170,422,211.7,422,256s-17.3,86-48.6,117.4C342,404.7,300.3,422,256,422
+								s-86-17.3-117.4-48.6C107.3,342,90,300.3,90,256s17.3-86,48.6-117.4C170,107.3,211.7,90,256,90 M256,48C141.1,48,48,141.1,48,256
+								s93.1,208,208,208s208-93.1,208-208S370.9,48,256,48L256,48z"/>
+							<g>
+								<path d="M277,360h-42V235h42V360z M277,194h-42v-42h42V194z"/>
+							</g>
+						</svg>
+				    </button>
+
+				    <button class="btn" id="copy-text">				   
+
+						<svg class="primary" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+							<path d="M296,48H176.5C154.4,48,136,65.4,136,87.5V96h-7.5C106.4,96,88,113.4,88,135.5v288c0,22.1,18.4,40.5,40.5,40.5h208
+							c22.1,0,39.5-18.4,39.5-40.5V416h8.5c22.1,0,39.5-18.4,39.5-40.5V176L296,48z M296,92.6l83.4,83.4H296V92.6z M344,423.5
+							c0,4.7-3.4,8.5-7.5,8.5h-208c-4.4,0-8.5-4.1-8.5-8.5v-288c0-4.1,3.8-7.5,8.5-7.5h7.5v255.5c0,22.1,10.4,32.5,32.5,32.5H344V423.5z
+							 M392,375.5c0,4.7-3.4,8.5-7.5,8.5h-208c-4.4,0-8.5-4.1-8.5-8.5v-288c0-4.1,3.8-7.5,8.5-7.5H248h16v96v32h32h96V375.5z"/>
+						</svg>
+
+				    </button>				    
+				    <button class="btn" id="delete-text">
+				    	
+				    	<svg class="primary" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+							<g>
+								<path d="M128,405.429C128,428.846,147.198,448,170.667,448h170.667C364.802,448,384,428.846,384,405.429V160H128V405.429z M416,96
+									h-80l-26.785-32H202.786L176,96H96v32h320V96z"/>
+							</g>
+						</svg>
+
+				    </button>				    
+				    <button class="btn" id="open-text">
+
+				    	<svg class="primary" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+							<path d="M437.334,144H256.006l-42.668-48H74.666C51.197,96,32,115.198,32,138.667v234.666C32,396.802,51.197,416,74.666,416h362.668
+							C460.803,416,480,396.802,480,373.333V186.667C480,163.198,460.803,144,437.334,144z M448,373.333
+							c0,5.782-4.885,10.667-10.666,10.667H74.666C68.884,384,64,379.115,64,373.333V176h373.334c5.781,0,10.666,4.885,10.666,10.667
+							V373.333z"/>
+						</svg>
+
+				    </button>	 
+				    <input type="file" name="open-file" id="open-file" class="d-none" accept="text/plain">
+				    <button class="btn" id="save-text">
+				    	
+				    	<svg class="primary" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
+							<g>
+								<path d="M272,64h-16c-4.4,0-8,3.6-8,8l0,72c0,4.4,7.6,8,12,8h12c4.4,0,8-3.6,8-8l0-72C280,67.6,276.4,64,272,64z"/>
+								<g>
+									<path d="M433.9,130.1l-51.9-51.9c-9-9-21.3-14.2-34.1-14.2h-28c-8.8,0-16,7.3-16,16.2v80c0,8.8-7.2,16-16,16H160
+										c-8.8,0-16-7.2-16-16v-80c0-8.8-7.2-16.2-16-16.2H96c-17.6,0-32,14.4-32,32v320c0,17.6,14.4,32,32,32h320c17.6,0,32-14.4,32-32
+										V164C448,151.3,442.9,139.1,433.9,130.1z M322,400.1c0,8.8-8,16-17.8,16H143.8c-9.8,0-17.8-7.2-17.8-16v-96c0-8.8,8-16,17.8-16
+										h160.4c9.8,0,17.8,7.2,17.8,16V400.1z"/>
+								</g>
+							</g>
+						</svg>
+
+				    </button>	
+				    <button class="btn" id="print-text">
+				    	
+				    	<svg class="primary" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+							<g>
+								<path d="M399.95,160h-287.9C76.824,160,48,188.803,48,224v138.667h79.899V448h256.201v-85.333H464V224
+									C464,188.803,435.175,160,399.95,160z M352,416H160V288h192V416z M384.101,64H127.899v80h256.201V64z"/>
+							</g>
+						</svg>
+
+				    </button>	
+
+				    <button class="btn" id="tone-text">
+
+				    	<svg class="primary" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+							<path d="M256,464c22.779,0,41.411-18.719,41.411-41.6h-82.823C214.588,445.281,233.221,464,256,464z M390.589,339.2V224.8
+								c0-63.44-44.516-117.518-103.53-131.041V79.2c0-17.682-13.457-31.2-31.059-31.2s-31.059,13.518-31.059,31.2v14.559
+								c-59.015,13.523-103.53,67.601-103.53,131.041v114.4L80,380.8v20.8h352v-20.8L390.589,339.2z"/>
+						</svg>
+
+				    </button>
+
+				    <button class="btn" id="editor-theme">
+
+				    	<svg class="primary" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="color-palette"><rect width="24" height="24" opacity="0"/><path d="M19.54 5.08A10.61 10.61 0 0 0 11.91 2a10 10 0 0 0-.05 20 2.58 2.58 0 0 0 2.53-1.89 2.52 2.52 0 0 0-.57-2.28.5.5 0 0 1 .37-.83h1.65A6.15 6.15 0 0 0 22 11.33a8.48 8.48 0 0 0-2.46-6.25zm-12.7 9.66a1.5 1.5 0 1 1 .4-2.08 1.49 1.49 0 0 1-.4 2.08zM8.3 9.25a1.5 1.5 0 1 1-.55-2 1.5 1.5 0 0 1 .55 2zM11 7a1.5 1.5 0 1 1 1.5-1.5A1.5 1.5 0 0 1 11 7zm5.75.8a1.5 1.5 0 1 1 .55-2 1.5 1.5 0 0 1-.55 2z"/></g></g></svg>
+
+				    </button>	   
+
+				  </div>
+				</div>
+					
+			</div>
+
+			<div class="col-md-12 mt-3">
+				
+				<label for="input_area">Enter Text Below :</label>
+				
+				<div id="editor-wrapper">
+					<textarea name="input_area" id="input_area" class="" autofocus="true" rows="10"></textarea>
+				</div>					
+
+				<p class="lead float-right">Col : <span id="caret-col">###</span> Row : <span id="caret-row">###</span> Total Word : <span id="total-word">###</span> Total Character : <span id="total-character">###</span></p>
+
+			</div>	
+
+		</div>
+
+
+		<div class="row my-3">
+			
+			<div class="col-md-12">
+				
+
+
+			</div>
+
+		</div>
+
+
+
+
+	</div>
+
+<div class="modal fade bd-example-modal-md" id="about-project-modal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">About</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">      	
+      	<table>
+      		<tr>
+      			<td>1.Author</td><td>:</td><td>சஞ்சீவ் காந்த்</td>      			
+      		</tr>
+      		<tr>
+      			<td>2.Software</td><td>:</td><td>Tamil Phonetic Keyboard</td>
+      		</tr>
+      		<tr>
+      			<td>3.Version</td><td>:</td><td>v1.1</td>
+      		</tr>
+      		<tr>
+      			<td>4.Permissions</td><td>:</td><td>Site Storage, Cookies, Clip Board, Midi Sounds</td>
+      		</tr>
+      		<tr>
+      			<td></td>
+      		</tr>
+      	</table>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

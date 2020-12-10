@@ -1,0 +1,108 @@
+body, .container-fluid, .jumbotron-fluid {
+	background-color: var(--body-bg-color);
+	color: var(--text-color);
+}
+
+.jumbotron-fluid {
+	border-bottom: 2px solid var(--text-color);
+}
+
+.modal {
+	color: var(--modal-text-color);
+}
+
+
+#editor-wrapper{	
+  	margin: 0 auto;
+  	padding: 20px;
+  	font-family: 'Dosis';
+  	background-color: var(--editor-wrapper-bg-color);
+	display: flex;
+	align-items: center;
+	justify-content: center;	
+	color: var(--editor-wrapper-text-color);
+}
+
+#editor-wrapper #input_area {
+	background-color: var(--editor-input-bg-color);
+	color: var(--editor-input-text-color);
+	caret-color:var(--editor-input-text-color);
+	padding: 15px;
+	border-color: none;
+	border-radius: 10px;
+	min-height: 50vh;
+	min-width: 100%;
+	overflow: auto;
+	resize: both;
+	outline: none;
+	box-shadow: 0 0 20px 3px var(--editor-input-boxshadow-color);
+	transition: 0.3s ease-in-out;
+}
+
+#editor-wrapper #input_area:focus {
+	background-color: var(--editor-input-bg-focus-color);
+	color: var(--editor-input-text-focus-color);		
+	caret-color:var(--editor-input-text-focus-color);
+	padding: 15px;
+	border-color: none;
+	border-radius: 10px;
+	min-height: 50vh;
+	min-width: 100%;
+	overflow: auto;
+	resize: both;
+	outline: none;
+	box-shadow: inset 0px 0px 20px 0 var(--editor-input-boxshadow-color-focus);	
+}
+
+
+.svg-icons,svg {
+	width: 2rem;	
+}
+
+
+
+svg.primary{
+	fill: var(--svg-color);
+}
+
+svg.primary:hover{
+	fill: var(--svg-hover-color);
+}
+
+/* Track */
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 8px var(--scrollbar-shadow-color);
+    -webkit-box-shadow: inset 0 0 8px var(--scrollbar-shadow-color);
+    border-radius: 10px;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: var(--scrollbar-thumb-bg-color);
+    box-shadow: var(--scrollbar-thumb-shadow-color);
+    -webkit-box-shadow: var(--scrollbar-thumb-shadow-color);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+    background: var(--scrollbar-inactive-color);
+}
+
+ ::selection {
+    background-color: var(--text-seleccct-bg-color);
+    color: var(--text-seleccct-text-color);
+}
+
+ ::-moz-selection {
+ 	background-color: var(--text-seleccct-bg-color);
+    color: var(--text-seleccct-text-color);
+}
