@@ -172,16 +172,12 @@ function text_counter(text) {
 }
 
 function countWords(s){
-    // s = s.replace(/(^\s*)|(\s*$)/gi,"");//exclude  start and end white-space
-    // s = s.replace(/[ ]{2,}/gi," ");//2 or more space to 1
-    // s = s.replace(/\n /,"\n"); // exclude newline with a start spacing
     s = s.replace(/\n/g,' ');
     return s.split(' ').filter(function(str){return str!="";}).length;
-    //return s.split(' ').filter(String).length; - this can also be used
 }
 
 function countChars(s) {
-  s = s.replace(/(^\s*)|(\s*$)/gi,"");//exclude  start and end white-space
+    s = s.replace(/(^\s*)|(\s*$)/gi,"");//exclude  start and end white-space
     s = s.replace(/[ ]{2,}/gi," ");//2 or more space to 1
     s = s.replace(/\n /,"\n"); // exclude newline with a start spacing
 
@@ -220,4 +216,101 @@ function text_tone_modifier () {
       $('#tone-text').html('<svg class="primary" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><g><path d="M256,463.656c22.814,0,41.475-18.656,41.475-41.656h-82.95C214.525,445,233.186,463.656,256,463.656z"/><path d="M131.083,107.172l0.053,0.074L98.09,74.277L74.004,98.383l63.042,63.153C126.888,180.521,121,202.196,121,225.07v114.555l-41,41.656V402h297.743l36.182,36.33l24.079-24.301L425.9,402h0.316L131.083,107.172z"/><path d="M391,225.07c0-63.526-45-117.677-104-131.218V79.274c0-17.706-13.371-31.243-31-31.243c-17.628,0-31,13.537-31,31.243v14.578c-15,3.438-29.048,9.501-41.75,17.663L391,319.355V225.07z"/></g></svg>');
     }
   }
+}
+
+/*==================================================*/
+
+var is_gecko = /gecko/i.test(navigator.userAgent);
+var is_ie = /MSIE/.test(navigator.userAgent);
+
+function setSelectionRange(input, start, end) {
+  if (is_gecko) {
+    input.setSelectionRange(start, end);
+  } else {
+    // assumed IE
+    var range = input.createTextRange();
+    range.collapse(true);
+    range.moveStart("character", start);
+    range.moveEnd("character", end - start);
+    range.select();
+  }
+};
+
+function getSelectionStart(input) {
+  if (is_gecko)
+    return input.selectionStart;
+  var range = document.selection.createRange();
+  var isCollapsed = range.compareEndPoints("StartToEnd", range) == 0;
+  if (!isCollapsed)
+    range.collapse(true);
+  var b = range.getBookmark();
+  return b.charCodeAt(2) - 2;
+};
+
+function getSelectionEnd(input) {
+  if (is_gecko)
+    return input.selectionEnd;
+  var range = document.selection.createRange();
+  var isCollapsed = range.compareEndPoints("StartToEnd", range) == 0;
+  if (!isCollapsed)
+    range.collapse(false);
+  var b = range.getBookmark();
+  return b.charCodeAt(2) - 2;
+};
+
+function proceedingWord(text, caretPos) {
+  var index = text.indexOf(caretPos);
+  var preText = text.substring(0, caretPos);
+  if (preText.indexOf("\n") > 0) {
+      var words = preText.split("\n");        
+
+      preText = words[words.length - 1];
+      if (preText.indexOf(" ") > 0) {
+          var words = preText.split(" ");            
+      }
+
+      return words[words.length - 1]; //return last word
+
+  } else if (preText.indexOf(" ") > 0) {
+      var words = preText.split(" ");
+      return words[words.length - 1]; //return last word
+  } else {
+      return preText;
+  }
+}
+
+
+function getProceedingCaretPosition(ctrl) {
+  var CaretPos = 0;   // IE Support
+  if (document.selection) {
+      ctrl.focus();
+      var Sel = document.selection.createRange();
+      Sel.moveStart('character', -ctrl.value.length);
+      CaretPos = Sel.text.length;
+  }
+  // Firefox support
+  else if (ctrl.selectionStart || ctrl.selectionStart == '0')
+      CaretPos = ctrl.selectionStart;
+
+  return (CaretPos);
+}
+
+
+function getBeforeCount (str, search) {
+    return str.split(search).length - 1;
+}
+
+function replaceTextOccurance(id, search, replaceWith) { 
+    if (id.value.indexOf(search) >= 0) {
+        var start = id.selectionStart;
+        var end = id.selectionEnd;
+        var textBefore = id.value.substr(0, end);
+        var textAfter = id.value.substr(end);
+        if (!is_not_valid(replaceWith)) {
+          var lengthDiff = (replaceWith.length - search.length) * getBeforeCount(textBefore, search);                  
+          id.value = id.value.replace(search, replaceWith);
+          setSelectionRange(id, start + lengthDiff, end + lengthDiff);          
+          return id.value;
+        }
+    }
 }

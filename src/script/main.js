@@ -35,23 +35,19 @@ $(document).ready(function(e) {
 		$('#caret-row').text(endPos);
 
 
-		var text = ta_phonetic_process('input_area',e);
-		
-		if (is_not_valid(text)) { 
-			$('#input_area').val('');	
+		ta_phonetic_process('input_area',e);
+		var text = $(this).val();
+		if (is_not_valid(text)) { 			
 			text_counter('');		
 			localStorage.setItem('input_tamil', '');
-		} else {
-			$('#input_area').val(text);
+		} else {			
 			text_counter(text);		
 			localStorage.setItem('input_tamil', text);
 		}
 		
 
 		e.stopPropagation();
-		e.preventDefault();		
-
-		setCursorPos(id,startPos,endPos);		
+		e.preventDefault();			
 
 	});
 
@@ -81,7 +77,6 @@ $(document).ready(function(e) {
 
 			if (confirmation) {
 
-				// $('#save-dialog').modal('show');
 				savetextfile();
 
 			} else {

@@ -937,11 +937,6 @@ function ta_phonetic_unicode(text) {
 function ta_phonetic_combine_unicode(text) {
 
 	if (!is_not_valid(text)) {
-		
-			// if (text == "\u0B94" || text == "\u0B90" || text == "\u0B85" || text == "\u0B86" || text == "\u0B87" || text == "\u0B88" || text == "\u0B89" || text == "\u0B8A" || text == "\u0B8E" || text == "\u0B8F" || text == "\u0B92" || text == "\u0B93") {
-
-			// }
-
 			
 			//Tamil consonental vowels
 
@@ -1903,27 +1898,26 @@ function ta_phonetic_combine_unicode(text) {
 
 }
 
-
 function ta_phonetic_process (id,e) {
 	
 	var curChar = '';
+	var text = '';
 
 	var id = document.getElementById(id);	
 
 	var value = id.value;
+	text = value;
 
-	var Pos = getCursorPos(id);
-	startPos = Pos['start'];
-	endPos = Pos['end'];
+    var caretPos = getProceedingCaretPosition(id);
+    var start = getSelectionStart(id);
+    var end = getSelectionEnd(id);
 
-	var prevChar = getCharacterPrecedingCaret(id,startPos);
-
-	var Char = getCharacterCurrentCaret(id,startPos);	
-
-	var text = ta_phonetic_unicode(value);
-	var text = ta_phonetic_combine_unicode(text);
-
-	return text;
+    var word = proceedingWord(id.value, caretPos);
+    if (word != null) {        
+        var text1 = ta_phonetic_unicode(word);
+		var text1 = ta_phonetic_combine_unicode(text1);		
+		text = replaceTextOccurance(id, word, text1);			
+    }
 
 
 }
