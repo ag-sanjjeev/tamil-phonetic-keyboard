@@ -4,9 +4,9 @@ function ta_phonetic_unicode(text) {
 
 			// tamil numbers
 
-			text = text.replace(/_1000/g, "௲");	
-			text = text.replace(/_100/g, "௱");
-			text = text.replace(/_10/g, "௰");		
+			text = text.replace(/_1000/g, "௲");				
+			text = text.replace(/_100/g, "௱");			
+			text = text.replace(/_10/g, "௰");
 			text = text.replace(/_1/g, "௧");
 			text = text.replace(/_2/g, "௨");
 			text = text.replace(/_3/g, "௩");
@@ -15,8 +15,11 @@ function ta_phonetic_unicode(text) {
 			text = text.replace(/_6/g, "௬");
 			text = text.replace(/_7/g, "௭");
 			text = text.replace(/_8/g, "௮");
-			text = text.replace(/_9/g, "௯");		
-			
+			text = text.replace(/_9/g, "௯");
+
+			text = text.replace(/௱0/g, "௲");
+			text = text.replace(/௰0/g, "௱");
+			text = text.replace(/௧0/g, "௰");	
 
 			// tamil vowels
 
@@ -26,7 +29,7 @@ function ta_phonetic_unicode(text) {
 			text = text.replace(/A/g, "\u0B86");
 			text = text.replace(/aa/g, "\u0B86");
 			text = text.replace(/i/g, "\u0B87");
-			text = text.replace(/I/g, "\u0B86");
+			text = text.replace(/I/g, "\u0B88");
 			text = text.replace(/ii/g, "\u0B88");
 			text = text.replace(/u/g, "\u0B89");
 			text = text.replace(/U/g, "\u0B8A");
@@ -1892,6 +1895,12 @@ function ta_phonetic_combine_unicode(text) {
 
 				text = text.replace(/\u0BB9\u0B89/g, "\u0BB9\u0BCC"); 
 
+
+			// tamil divine letters 
+
+			text = text.replace(/q/g, "ௐ");
+			text = text.replace(/\u0B93\u0BAE\u0BCD/g, "ௐ");
+			text = text.replace(/Q/g, "௳");			
 
 			return text;
 	}
