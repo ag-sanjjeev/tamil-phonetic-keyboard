@@ -15,7 +15,7 @@ Phonetic Keyboard for தமிழ் மொழி (Tamil language) made with HT
 ## 1. உயிர் எழுத்துக்கள்:
 
 - a - அ
-- aa / A / I - ஆ
+- aa / A - ஆ
 - i - இ
 - ii / I - ஈ
 - u - உ
