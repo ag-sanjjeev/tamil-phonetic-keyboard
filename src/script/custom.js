@@ -306,10 +306,36 @@ function replaceTextOccurance(id, search, replaceWith) {
         var end = id.selectionEnd;
         var textBefore = id.value.substr(0, end);
         var textAfter = id.value.substr(end);
+
+        var length = id.value.substr(0, end).split(" ").length;
+        var textBeforeProcessed = ''; 
+        var lastWord_val = '';
+        if (textBefore.indexOf(" ") > 0) {
+          var textBeforeArray = textBefore.split(" ");
+          var length = textBeforeArray.length;
+          var lastWord = textBeforeArray.pop();
+          lastWord_val = lastWord;
+          if (is_not_valid(lastWord)) {
+            lastWord = " ";            
+            textBeforeArray.push(lastWord);
+            textBeforeProcessed = textBeforeArray.join(" ");
+          } else {
+            lastWord = lastWord.replace(search, replaceWith);
+            lastWord = (is_not_valid(lastWord)) ? " " : lastWord;
+            textBeforeArray.push(lastWord);
+            textBeforeProcessed = textBeforeArray.join(" ");
+          }
+        } else {
+          if (!is_not_valid(textBefore)) {
+            lastWord_val = textBefore;
+            textBeforeProcessed = textBefore.replace(search, replaceWith);
+          }
+        }
+
         if (!is_not_valid(replaceWith)) {
-          var lengthDiff = (replaceWith.length - search.length) * getBeforeCount(textBefore, search);                  
-          id.value = id.value.replace(search, replaceWith);
-          setSelectionRange(id, start + lengthDiff, end + lengthDiff);          
+          var lengthDiff = (replaceWith.length - search.length) * getBeforeCount(lastWord_val, search);                            
+          id.value = textBeforeProcessed + textAfter;
+          setSelectionRange(id, start + lengthDiff, end + lengthDiff);           
           return id.value;
         }
     }
