@@ -10,6 +10,8 @@ Phonetic Keyboard for தமிழ் மொழி (Tamil language) made with HT
 
 இந்தக் கருவியுடன் நீங்கள் தட்டச்சு செய்வதை நகல் செய்யலாம், கோப்பாக பதிவு செய்யலாம், மற்றொரு கோப்பை திறந்துப் பார்க்கலாம், அச்சு எடுக்கலாம், தட்டச்சு செய்தவற்றை நீக்கலாம், கருப்பு பயன்முறை மற்றும் வெள்ளை பயன்முறையிலும் பயன்படுத்தலாம்.
 
+செய்முறை இணைப்பு (Demo Link) [Tamil Phonetic Keyboard](https://sansglobe.blogspot.com/2020/12/tamil-phonetic-keyboard.html "Tamil Phonetic Keyboard") <https://sansglobe.blogspot.com/2020/12/tamil-phonetic-keyboard.html>
+
 ## தட்டச்சு கருவியைப் பயன்படுத்தும் முறை:
 
 ## 1. உயிர் எழுத்துக்கள்:
